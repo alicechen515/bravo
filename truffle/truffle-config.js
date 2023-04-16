@@ -90,6 +90,21 @@ module.exports = {
       skipDryRun: true
     },
 
+    avax_fuji: {
+      provider: () => new HDWalletProvider(privateKey, `https://api.avax-test.network/ext/bc/C/rpc`),
+      network_id: 43113,
+    },
+
+    arbitrum_goerli: {
+      provider: () => new HDWalletProvider(privateKey, `https://goerli-rollup.arbitrum.io/rpc`),
+      network_id: 421613,
+    },
+
+    arbitrum_nova: {
+      provider: () => new HDWalletProvider(privateKey, `https://nova.arbitrum.io/rpc`),
+      network_id: 42170,
+    }
+
   //
   // An additional network, but with some advanced options…
   // advanced: {
