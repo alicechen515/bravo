@@ -104,13 +104,16 @@ function LandingPage() {
     // console.log(winner1)
     // console.log(winner2)
     // console.log(winner3)
+    let balance = await contract.methods.getBalance().call({ from: address });
+    balance = Web3.utils.fromWei(balance, "ether");
+    // console.log(balance)
     // console.log(winner1Amount)
     // console.log(winner2Amount)
     // console.log(winner3Amount)
-    let balance = await contract.methods.getBalance().call({ from: address });
-    balance = Web3.utils.fromWei(balance, "ether");
-    if (balance <= winner1Amount + winner2Amount + winner3Amount) {
+    if (balance >= winner1Amount + winner2Amount + winner3Amount) {
       setIsValid(true);
+    } else {
+      console.error("Amounts not valid");
     }
   }
 
